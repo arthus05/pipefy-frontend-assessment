@@ -2,7 +2,7 @@ declare module 'pipefy-service' {
 
   interface Pipe {
     name: string
-    cardsCount: number
+    cards_count: number
     color: string
     public: boolean
   }
