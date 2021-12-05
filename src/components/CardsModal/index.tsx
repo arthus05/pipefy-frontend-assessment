@@ -6,7 +6,7 @@ import {
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(90, 90, 90, 0.75)'
+    backgroundColor: 'rgba(71, 71, 71, 0.75)'
   },
   content: {
     top: '50%',
