@@ -8,9 +8,10 @@ import {
 
 interface PipeCardProps {
   pipe: Pipe
+  onClick: () => void
 }
 
-export const PipeCard = ({ pipe }: PipeCardProps) => {
+export const PipeCard = ({ pipe, onClick }: PipeCardProps) => {
   const [isPublic, setIsPublic] = useState(true)
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const PipeCard = ({ pipe }: PipeCardProps) => {
   console.log(pipe)
 
   return (
-    <Box color={pipe.color}>
+    <Box color={pipe.color} onClick={onClick}>
       <LockContainer>
         {
           !isPublic ?? <img src="https://pipestyle.staticpipefy.com/icons/interface/locker-sm.svg" alt="lock icon" />

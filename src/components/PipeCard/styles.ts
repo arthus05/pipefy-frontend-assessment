@@ -11,13 +11,11 @@ export const Box = styled.section<BoxProps>`
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s ease;
-  z-index: 0;
   background-color: ${(props) =>
     props.color ? lighten(0.4, props.color) : "white"};
 
   &:hover {
     color: #101820;
-    z-index: 1;
     box-shadow: 0 8px 10px #8f8f8f;
     transform: scale(1.05);
     background-color: ${(props) =>
