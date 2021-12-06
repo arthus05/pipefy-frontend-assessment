@@ -18,8 +18,6 @@ export const PipeCard = ({ pipe, onClick }: PipeCardProps) => {
     setIsPublic(pipe.public)
   }, [pipe.public])
 
-  console.log(pipe)
-
   return (
     <Box color={pipe.color} onClick={onClick}>
       <LockContainer>

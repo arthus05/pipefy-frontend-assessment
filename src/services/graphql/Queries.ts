@@ -6,6 +6,7 @@ export const GET_PIPES_BY_ORGANIZATION = gql`
       id
       name
       pipes {
+        id
         cards_count
         color
         name
@@ -16,35 +17,28 @@ export const GET_PIPES_BY_ORGANIZATION = gql`
 `;
 
 export const GET_CARD_BY_PIPE_ID = gql`
-  query GetCard($pipe_id: ID!) {
-    cards(pipe_id: $pipe_id) {
+  query GetCard($pipe_id: ID!, $first: Int,$after: String) {
+    cards(pipe_id: $pipe_id, first: $first, after: $after) {
       edges {
         node {
           title
-          subtitles {
-            date_value
-            datetime_value
-            filled_at
-            float_value
-            indexName
+          due_date
+          pipe {
             name
-            report_value
-            updated_at
-            value
-          }
-          age
-          createdAt
-          createdBy {
-            displayName
           }
           labels {
             name
             color
           }
-          assignees {
-            displayName
+          subtitles {
+            name
+            value
           }
         }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
       }
     }
   }
