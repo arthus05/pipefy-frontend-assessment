@@ -89,6 +89,10 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
           <h1>Loading...</h1>
           : (
             <InsideBox>
+
+              <h1>Your Cards</h1>
+              <p>Here are the cards from the selected pipe</p>
+
               <CardsBox>
                 {cards?.map((card, i) => <Card card={card} />)}
               </CardsBox>

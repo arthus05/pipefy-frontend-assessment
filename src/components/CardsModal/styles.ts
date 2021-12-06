@@ -6,7 +6,7 @@ export const Box = styled.section`
 
 export const InsideBox = styled.section`
   width: max-content;
-  height: max-content;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,7 @@ export const InsideBox = styled.section`
 
 export const CardsBox = styled.div`
   max-width: 60vw;
+  margin: .4rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `
