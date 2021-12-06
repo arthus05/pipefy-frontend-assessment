@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Box = styled.section`
   display: none;
-`
+`;
 
 export const InsideBox = styled.section`
   width: max-content;
@@ -10,11 +10,17 @@ export const InsideBox = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
-export const CardsBox = styled.div`
+interface CardsBoxProps {
+  numColumns?: number;
+}
+
+export const CardsBox = styled.div<CardsBoxProps>`
   max-width: 60vw;
-  margin: .4rem 0;
+  margin: 0.4rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`
+  grid-template-columns: repeat(
+    ${props => props.numColumns ?  props.numColumns : 3}, 1fr
+  );
+`;

@@ -89,16 +89,21 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
           <h1>Loading...</h1>
           : (
             <InsideBox>
-
               <h1>Your Cards</h1>
-              <p>Here are the cards from the selected pipe</p>
+              {
+                cards && cards.length > 0 ?
+                  <>
+                    <p>Here are the card(s) from the selected pipe</p>
 
-              <CardsBox>
-                {cards?.map((card, i) => <Card card={card} />)}
-              </CardsBox>
-              
-              {pageInfo?.hasNextPage ?
-                <LoadMore onLoadMore={onLoadMore} isLoadingMore={isLoadingMore} /> : <></>}
+                    <CardsBox numColumns={cards?.length < 3 ? cards?.length : 3}>
+                      {cards?.map((card, i) => <Card card={card} />)}
+                    </CardsBox>
+
+                    {pageInfo?.hasNextPage ?
+                      <LoadMore onLoadMore={onLoadMore} isLoadingMore={isLoadingMore} /> : <></>}
+                  </> : <p>There is no cards from this pipe</p>
+              }
+
             </InsideBox>
           )
       }
