@@ -1,11 +1,12 @@
 import { useQuery } from '@apollo/client';
 import { CardRes, CardVars } from 'pipefy-service';
-import { Card } from 'pipefy-types';
+import { CardType } from 'pipefy-types';
 import { useState } from 'react';
 import Modal from 'react-modal'
 import { GET_CARD_BY_PIPE_ID } from '../../services/graphql/Queries'
 import { LoadMore } from './LoadMore';
-import { InsideContainer } from './styles';
+import { CardsBox, InsideBox } from './styles';
+import { Card } from '../Card'
 
 const customStyles = {
   overlay: {
@@ -18,7 +19,8 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '40px'
+    padding: '40px',
+    backgroundColor: '#e8f2fa'
   },
 };
 
@@ -39,7 +41,7 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
     }
   })
 
-  const cards = data?.cards.edges.map<Card>(e => ({
+  const cards = data?.cards.edges.map<CardType>(e => ({
     title: e.node.title,
     pipeName: e.node.pipe.name,
     dueDate: e.node.due_date,
@@ -86,11 +88,14 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
         loading ?
           <h1>Loading...</h1>
           : (
-            <InsideContainer>
-              {cards?.map((c, i) => <h1 key={i}>{c.title}</h1>)}
-              {pageInfo?.hasNextPage ? 
-                <LoadMore onLoadMore={onLoadMore} isLoadingMore={isLoadingMore}/> : <></>}
-            </InsideContainer>
+            <InsideBox>
+              <CardsBox>
+                {cards?.map((card, i) => <Card card={card} />)}
+              </CardsBox>
+              
+              {pageInfo?.hasNextPage ?
+                <LoadMore onLoadMore={onLoadMore} isLoadingMore={isLoadingMore} /> : <></>}
+            </InsideBox>
           )
       }
 

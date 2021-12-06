@@ -10,12 +10,18 @@ declare module 'pipefy-types' {
     value: string
   }
 
-  type Card = {
+  type CardType = {
     title: string
     dueDate: Date
     pipeName: string
     labels: Label[]
     subtitles: Subtitle[]
+  }
+
+  type CardDateType = {
+    month: string
+    day: number
+    yearDistance: number
   }
 
 }
