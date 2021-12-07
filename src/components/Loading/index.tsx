@@ -1,16 +1,22 @@
 import React from 'react'
 import {
-  Box
+  Box,
+  Loader
 } from './styles'
 
-export const Loading = () => {
+interface LoadingProps {
+  hasLoading?: boolean
+  size?: string
+}
+
+export const Loading = ({ hasLoading, size }: LoadingProps) => {
   return (
     <Box>
-      <div className='loader'>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      {
+        hasLoading ? <p>Loading</p> : <></>
+      }
+      <Loader size={size}>
+      </Loader>
     </Box>
   )
 }

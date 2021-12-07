@@ -1,12 +1,15 @@
 import { useQuery } from '@apollo/client';
 import { GET_PIPES_BY_ORGANIZATION } from '../../services/graphql/Queries'
 import {
-  Box
+  Box,
+  LoadingBox,
+  NoPipes
 } from './styles'
 import { PipeCard } from '../PipeCard';
 import { OrganizationRes, OrganizationVars } from 'pipefy-service'
 import { CardsModal } from '../CardsModal';
 import { useState } from 'react';
+import { Loading } from '../Loading';
 
 
 export const Pipes = () => {
@@ -17,9 +20,6 @@ export const Pipes = () => {
     variables: { id: 300562393 }
   })
 
-  if (loading) return <h1>Loading...</h1>
-
-
   function handleCloseModal() {
     setModalIsOpen(false)
   }
@@ -29,21 +29,25 @@ export const Pipes = () => {
     setModalIsOpen(true)
   }
 
-  console.log('loading:', loading)
-  console.log('error:', error)
-  console.log('data:', data)
+  console.log('Error:', error)
 
   return (
     <Box>
-      <CardsModal 
+      <CardsModal
         modalIsOpen={modalIsOpen}
         closeModal={handleCloseModal}
         pipeId={selectedPipeId}
       />
       {
-        data?.organization.pipes.map((pipe, i) => (
-          <PipeCard onClick={() => handleClickPipe(pipe.id)} pipe={pipe} key={i} />
-        ))
+        loading ?
+          <LoadingBox>
+            <Loading size='4rem' />
+          </LoadingBox>
+          : (data && data.organization.pipes.length > 0 ?
+              [...data.organization.pipes].sort((a, b) => a.name.trim().localeCompare(b.name.trim())).map((pipe, i) => (
+                <PipeCard onClick={() => handleClickPipe(pipe.id)} pipe={pipe} key={i} />
+              )) : <NoPipes>No pipes found for this Organization</NoPipes>
+            )
       }
     </Box>
   )

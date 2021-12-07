@@ -7,7 +7,7 @@ export const Box = styled.header`
 `;
 
 export const Image = styled.section`
-  height: 12vh;
+  height: 3.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,12 +21,13 @@ export const Image = styled.section`
 `;
 
 export const Content = styled.section`
-  width: 94%;
-  margin: auto;
+  width: 90%;
+  margin: 1rem auto;
   height: 56px;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
 `

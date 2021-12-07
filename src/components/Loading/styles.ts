@@ -1,37 +1,26 @@
 import styled, { keyframes } from "styled-components";
 
-const Bounce = keyframes`
+const Rotate = keyframes`
   to {
-    width: 16px
-    height: 16px;
-    transform: translate3d(0, -16px, 0)
+    transform: rotate(360deg)
   }
 `;
 
-export const Box = styled.div`
-  .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+interface LoaderProps {
+  size?: string
+}
 
-  .loader > span {
-    display: inline-block;
-    background-color: #000;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    margin: 0 8px;
-    transform: translate3d(0);
-    animation: ${Bounce} infinite alternate;
-  }
-
-  .loader > span:nth-child(2) {
-    background-color: #f3f3;
-    animation-delay: 0.2s;
-  }
-
-  .loader > span:nth-child(3) {
-    animation-delay: 0.4s;
-  }
+export const Loader = styled.div<LoaderProps>`
+  animation: ${Rotate} 0.8s infinite;
+  border: 0.2rem solid #8f8f8f;
+  border-top-color: #fff;
+  border-radius: 50%;
+  height: ${props => props.size ?  props.size : '1.4rem'};
+  width: ${props => props.size ?  props.size : '1.4rem'};
 `;
+
+export const Box = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`

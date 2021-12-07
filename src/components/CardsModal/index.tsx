@@ -7,6 +7,7 @@ import { GET_CARD_BY_PIPE_ID } from '../../services/graphql/Queries'
 import { LoadMore } from './LoadMore';
 import { CardsBox, InsideBox } from './styles';
 import { Card } from '../Card'
+import { Loading } from '../Loading';
 
 const customStyles = {
   overlay: {
@@ -86,7 +87,7 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
     >
       {
         loading ?
-          <h1>Loading...</h1>
+          <Loading/>
           : (
             <InsideBox>
               <h1>Your Cards</h1>
