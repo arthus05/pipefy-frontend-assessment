@@ -1,3 +1,4 @@
+import { Loading } from '../../Loading'
 import { LoadMoreBtn } from './styles'
 
 interface ModalContentProps {
@@ -12,7 +13,7 @@ export const LoadMore = ({ onLoadMore, isLoadingMore }: ModalContentProps) => {
     <div>
       <LoadMoreBtn onClick={onLoadMore}>
         {
-          isLoadingMore ? '...' : 'Load More'
+          isLoadingMore ? <Loading/> : <Loading/>
         }
 
       </LoadMoreBtn>

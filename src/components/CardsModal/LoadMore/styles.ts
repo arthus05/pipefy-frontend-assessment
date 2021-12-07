@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { darken } from "polished";
 
 export const LoadMoreBtn = styled.button`
-  margin-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
   width: 7rem;
   height: 2.6rem;
   border-radius: 1.6rem;
