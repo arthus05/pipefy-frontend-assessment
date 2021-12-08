@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
 import Modal from 'react-modal'
 
-import { CardRes, CardVars } from 'pipefy-service';
+import { CardRes } from 'pipefy-service';
 import { CardType } from 'pipefy-types';
 
-import { GET_CARD_BY_PIPE_ID } from '../../services/graphql/Queries'
 
 import { Card } from '../Card'
 import { Loading } from '../Loading';
@@ -16,6 +14,7 @@ import {
   CardsBox,
   InsideBox
 } from './styles';
+import { useCardList } from '../../hooks/useCardList';
 
 const customStyles = {
   overlay: {
@@ -42,7 +41,7 @@ interface CardsModalProps {
 export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps) => {
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
-  const { loading, fetchMore, data, error } = useQuery<CardRes, CardVars>(GET_CARD_BY_PIPE_ID, {
+  const { loading, fetchMore, data } = useCardList({
     variables: {
       pipe_id: pipeId?.toString(),
       first: 3,
@@ -59,8 +58,6 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
   }))
 
   const pageInfo = data?.cards.pageInfo
-
-  console.log(error)
 
   function onLoadMore() {
     if (pageInfo?.hasNextPage) {

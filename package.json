@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,6 +47,9 @@
   "devDependencies": {
     "@types/react": "^17.0.11",
     "@types/react-modal": "^3.13.1",
-    "@types/styled-components": "^5.1.16"
+    "@types/styled-components": "^5.1.16",
+    "babel-jest": "^27.4.2",
+    "jest": "^27.4.3",
+    "jest-environment-node": "^27.4.2"
   }
 }

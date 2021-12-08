@@ -1,22 +1,21 @@
-import { useQuery } from '@apollo/client';
-import { GET_PIPES_BY_ORGANIZATION } from '../../services/graphql/Queries'
 import {
   Box,
   LoadingBox,
   NoPipes
 } from './styles'
 import { PipeCard } from '../PipeCard';
-import { OrganizationRes, OrganizationVars } from 'pipefy-service'
 import { CardsModal } from '../CardsModal';
 import { useState } from 'react';
 import { Loading } from '../Loading';
+
+import { usePipeList } from '../../hooks/usePipeList'
 
 
 export const Pipes = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [selectedPipeId, setSelectedPipeId] = useState<number>(0)
 
-  const { loading, error, data } = useQuery<OrganizationRes, OrganizationVars>(GET_PIPES_BY_ORGANIZATION, {
+  const { loading, data } = usePipeList({
     variables: { id: 300562393 }
   })
 
@@ -28,8 +27,6 @@ export const Pipes = () => {
     setSelectedPipeId(pipeId)
     setModalIsOpen(true)
   }
-
-  console.log('Error:', error)
 
   return (
     <Box>
