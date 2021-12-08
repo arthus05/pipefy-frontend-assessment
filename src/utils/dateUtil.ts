@@ -11,13 +11,5 @@ export function handleCardDate(date: Date): CardDateType {
     day: date.getDate(),
     yearDistance: date.getFullYear() - curYear
   }
-  
+
 }
-
-export function checkDatePassed(firstDate: Date, secondDate: Date) {
-  if (firstDate.setHours(0, 0, 0, 0) <= secondDate.setHours(0, 0, 0, 0)) {
-    return true;
-  }
-
-  return false;
-};

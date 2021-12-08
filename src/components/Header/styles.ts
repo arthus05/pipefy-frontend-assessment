@@ -23,7 +23,7 @@ export const Image = styled.section`
 export const Content = styled.section`
   width: 90%;
   margin: 1rem auto;
-  height: 56px;
+  height: 3.2rem;
   align-self: flex-start;
   display: flex;
   flex-direction: column;

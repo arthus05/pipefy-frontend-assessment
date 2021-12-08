@@ -23,4 +23,13 @@ export const CardsBox = styled.div<CardsBoxProps>`
   grid-template-columns: repeat(
     ${props => props.numColumns ?  props.numColumns : 3}, 1fr
   );
+
+  @media(max-width: 600px) {
+    & {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;

@@ -1,13 +1,21 @@
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
+import Modal from 'react-modal'
+
 import { CardRes, CardVars } from 'pipefy-service';
 import { CardType } from 'pipefy-types';
-import { useState } from 'react';
-import Modal from 'react-modal'
+
 import { GET_CARD_BY_PIPE_ID } from '../../services/graphql/Queries'
-import { LoadMore } from './LoadMore';
-import { CardsBox, InsideBox } from './styles';
+
 import { Card } from '../Card'
 import { Loading } from '../Loading';
+
+import { LoadMore } from './LoadMore';
+
+import { 
+  CardsBox,
+  InsideBox
+} from './styles';
 
 const customStyles = {
   overlay: {

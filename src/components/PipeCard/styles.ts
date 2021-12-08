@@ -6,9 +6,9 @@ interface BoxProps {
 }
 
 export const Box = styled.section<BoxProps>`
-  width: 160px;
-  height: 200px;
-  border-radius: 8px;
+  width: 10rem;
+  height: 12.2rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.3s ease;
   background-color: ${(props) =>
@@ -41,11 +41,11 @@ export const Content = styled.section`
 `;
 
 export const LockContainer = styled.div`
-  height: 30px;
+  height: 1.87rem;
 
   img {
-    height: 20px;
-    margin: 6px;
+    height: 1.25rem;
+    margin: 0.19rem;
     filter: invert(0.5);
   }
 `;
