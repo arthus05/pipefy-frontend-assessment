@@ -23,9 +23,8 @@ describe('PipeCard Component', () => {
       <PipeCard pipe={mockedPipe} onClick={mockedOnClick} />
     )
 
-    await waitForExpect(async () => {
+    await waitForExpect(() => {
       wrapper.update()
-      console.log(wrapper.props())
       expect(wrapper.props())
         .toMatchObject({
           pipe: mockedPipe,
@@ -33,13 +32,13 @@ describe('PipeCard Component', () => {
         })
     })
 
-    await waitForExpect(async () => {
+    await waitForExpect(() => {
       wrapper.update()
       expect(wrapper.find({"data-testid": "pipe-name" }).text())
         .toMatch(mockedPipe.name)
     })
 
-    await waitForExpect(async () => {
+    await waitForExpect(() => {
       wrapper.update()
       expect(wrapper.find({'data-testid': 'pipe-cards-count'}).text())
         .toMatch(mockedPipe.cards_count.toString())
