@@ -1,7 +1,7 @@
 import { gql, QueryHookOptions, useQuery } from '@apollo/client'
 import { OrganizationRes, OrganizationVars } from 'pipefy-service';
 
-const GET_PIPES_BY_ORGANIZATION = gql`
+export const GET_PIPES_BY_ORGANIZATION = gql`
   query GetPipesByOrganization($id: ID!) {
     organization(id: $id) {
       id

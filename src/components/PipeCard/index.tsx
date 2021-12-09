@@ -19,15 +19,15 @@ export const PipeCard = ({ pipe, onClick }: PipeCardProps) => {
   }, [pipe.public])
 
   return (
-    <Box color={pipe.color} onClick={onClick}>
-      <LockContainer>
+    <Box color={pipe.color} onClick={onClick} data-testid='pipe-card'>
+      <LockContainer data-testid='lock-container'>
         {
           !isPublic ?? <img src="https://pipestyle.staticpipefy.com/icons/interface/locker-sm.svg" alt="lock icon" />
         }
       </LockContainer>
       <Content>
-        <h4>{pipe.name}</h4>
-        <p>{pipe.cards_count} cards</p>
+        <h4 data-testid='pipe-name'>{pipe.name}</h4>
+        <p data-testid='pipe-cards-count'>{pipe.cards_count} cards</p>
       </Content>
     </Box>
   )

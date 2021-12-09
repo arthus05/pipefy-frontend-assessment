@@ -4,7 +4,6 @@ import Modal from 'react-modal'
 import { CardRes } from 'pipefy-service';
 import { CardType } from 'pipefy-types';
 
-
 import { Card } from '../Card'
 import { Loading } from '../Loading';
 

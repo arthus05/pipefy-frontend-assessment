@@ -20,7 +20,7 @@ declare module 'pipefy-service' {
   }
 
   interface OrganizationVars {
-    id: number
+    id?: number
   }
 
   // Card
