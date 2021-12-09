@@ -33,12 +33,12 @@ export const Card = ({ card }: CardProps) => {
             </LabelBox> : <></>
         }
 
-        <h2>{card.title}</h2>
+        <h2 data-testid='card-title'>{card.title}</h2>
         {
           card.subtitles.map((subtitle, i) => (
             <SubtitleContainer key={i}>
-              <h3>{subtitle.name}</h3>
-              <p>{subtitle.value}</p>
+              <h3 data-testid='subtitle-name'>{subtitle.name}</h3>
+              <p data-testid='subtitle-value'>{subtitle.value}</p>
             </SubtitleContainer>
           ))
         }
