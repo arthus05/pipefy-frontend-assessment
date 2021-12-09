@@ -15,7 +15,7 @@ export const Header = () => {
       </Image>
       <Content>
         <h1>Your Pipes</h1>
-        <p>Here are all your processes <a href='https://help.pipefy.com/'>learn more</a>.</p>
+        <p>Here are all your processes <a target='_blank' href='https://help.pipefy.com/' rel="noreferrer">learn more</a>.</p>
       </Content>
     </Box>
   )

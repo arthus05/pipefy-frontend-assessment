@@ -124,20 +124,6 @@ describe('CardsModal Component', () => {
 
   })
 
-  it('should render with the correct props', async () => {
-    const wrapper = mount(
-      <MockedProvider mocks={[mockCardListData]} addTypename={false}>
-        <CardsModal {...mockedCardsModalProps}/>
-      </MockedProvider>
-    )
-
-    await waitForExpect(() => {
-      wrapper.update()
-      expect(wrapper.props())
-        .toMatchObject(mockedCardsModalProps)
-    })
-  })
-
   it('should render correct amount of cards when there is data', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[mockCardListData]} addTypename={false}>
