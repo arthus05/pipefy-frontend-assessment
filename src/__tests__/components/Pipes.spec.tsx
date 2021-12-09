@@ -8,7 +8,6 @@ import { GET_PIPES_BY_ORGANIZATION } from '../../hooks'
 
 Enzyme.configure({adapter: new Adapter()});
 
-
 export const mockPipeListData = {
   request: {
     query: GET_PIPES_BY_ORGANIZATION,
@@ -47,7 +46,7 @@ const organizationId = process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
 
 describe('Pipes Component', () => {
 
-  it('should render one NoPipes component when there is no data', async () => {
+  it('should say when there is no data', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[]} addTypename={false}>
         <Pipes organizationId={organizationId ? parseInt(organizationId) : undefined}/>

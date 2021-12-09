@@ -9,7 +9,7 @@ import { Loading } from '../Loading';
 
 import { LoadMore } from './LoadMore';
 
-import { 
+import {
   CardsBox,
   InsideBox
 } from './styles';
@@ -91,7 +91,7 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
     >
       {
         loading ?
-          <Loading/>
+          <Loading />
           : (
             <InsideBox>
               <h1>Your Cards</h1>
@@ -101,12 +101,12 @@ export const CardsModal = ({ modalIsOpen, closeModal, pipeId }: CardsModalProps)
                     <p>Here are the card(s) from the selected pipe</p>
 
                     <CardsBox numColumns={cards?.length < 3 ? cards?.length : 3}>
-                      {cards?.map((card, i) => <Card card={card} />)}
+                      {cards?.map((card, i) => <Card key={i} card={card} />)}
                     </CardsBox>
 
                     {pageInfo?.hasNextPage ?
                       <LoadMore onLoadMore={onLoadMore} isLoadingMore={isLoadingMore} /> : <></>}
-                  </> : <p>There is no cards from this pipe</p>
+                  </> : <p data-testid='no-card-data'>There is no cards from this pipe</p>
               }
 
             </InsideBox>
