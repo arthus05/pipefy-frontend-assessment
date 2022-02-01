@@ -22,6 +22,8 @@ export const Pipes = ({ organizationId }: PipesProps) => {
     variables: { id: organizationId }
   })
 
+  console.log(data)
+
   const PipeList = useMemo(() => {
     if (data && data.organization.pipes.length > 0) {
 
